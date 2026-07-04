@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- ===================== Departments ===================== -->
+
+    <bean id="deptIT" class="com.training.employee.model.Department">
+        <property name="departmentId" value="1"/>
+        <property name="departmentName" value="Information Technology"/>
+    </bean>
+
+    <bean id="deptHR" class="com.training.employee.model.Department">
+        <property name="departmentId" value="2"/>
+        <property name="departmentName" value="Human Resources"/>
+    </bean>
+
+    <bean id="deptFinance" class="com.training.employee.model.Department">
+        <property name="departmentId" value="3"/>
+        <property name="departmentName" value="Finance"/>
+    </bean>
+
+    <util:list id="departmentList" list-class="java.util.ArrayList">
+        <ref bean="deptIT"/>
+        <ref bean="deptHR"/>
+        <ref bean="deptFinance"/>
+    </util:list>
+
+    <!-- ===================== Skills ===================== -->
+
+    <bean id="skillJava" class="com.training.employee.model.Skill">
+        <property name="skillId" value="1"/>
+        <property name="name" value="Java"/>
+    </bean>
+
+    <bean id="skillSpring" class="com.training.employee.model.Skill">
+        <property name="skillId" value="2"/>
+        <property name="name" value="Spring"/>
+    </bean>
+
+    <bean id="skillAngular" class="com.training.employee.model.Skill">
+        <property name="skillId" value="3"/>
+        <property name="name" value="Angular"/>
+    </bean>
+
+    <bean id="skillSql" class="com.training.employee.model.Skill">
+        <property name="skillId" value="4"/>
+        <property name="name" value="SQL"/>
+    </bean>
+
+    <bean id="skillExcel" class="com.training.employee.model.Skill">
+        <property name="skillId" value="5"/>
+        <property name="name" value="Excel"/>
+    </bean>
+
+    <bean id="skillCommunication" class="com.training.employee.model.Skill">
+        <property name="skillId" value="6"/>
+        <property name="name" value="Communication"/>
+    </bean>
+
+    <!-- ===================== Employees ===================== -->
+
+    <bean id="employee1" class="com.training.employee.model.Employee">
+        <property name="id" value="1"/>
+        <property name="name" value="John Smith"/>
+        <property name="email" value="john.smith@example.com"/>
+        <property name="department" ref="deptIT"/>
+        <property name="skills">
+            <list>
+                <ref bean="skillJava"/>
+                <ref bean="skillSpring"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="employee2" class="com.training.employee.model.Employee">
+        <property name="id" value="2"/>
+        <property name="name" value="Emily Johnson"/>
+        <property name="email" value="emily.johnson@example.com"/>
+        <property name="department" ref="deptIT"/>
+        <property name="skills">
+            <list>
+                <ref bean="skillAngular"/>
+                <ref bean="skillJava"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="employee3" class="com.training.employee.model.Employee">
+        <property name="id" value="3"/>
+        <property name="name" value="Michael Brown"/>
+        <property name="email" value="michael.brown@example.com"/>
+        <property name="department" ref="deptHR"/>
+        <property name="skills">
+            <list>
+                <ref bean="skillCommunication"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="employee4" class="com.training.employee.model.Employee">
+        <property name="id" value="4"/>
+        <property name="name" value="Sarah Davis"/>
+        <property name="email" value="sarah.davis@example.com"/>
+        <property name="department" ref="deptHR"/>
+        <property name="skills">
+            <list>
+                <ref bean="skillCommunication"/>
+                <ref bean="skillExcel"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="employee5" class="com.training.employee.model.Employee">
+        <property name="id" value="5"/>
+        <property name="name" value="David Wilson"/>
+        <property name="email" value="david.wilson@example.com"/>
+        <property name="department" ref="deptFinance"/>
+        <property name="skills">
+            <list>
+                <ref bean="skillExcel"/>
+                <ref bean="skillSql"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="employee6" class="com.training.employee.model.Employee">
+        <property name="id" value="6"/>
+        <property name="name" value="Laura Miller"/>
+        <property name="email" value="laura.miller@example.com"/>
+        <property name="department" ref="deptFinance"/>
+        <property name="skills">
+            <list>
+                <ref bean="skillSql"/>
+            </list>
+        </property>
+    </bean>
+
+    <util:list id="employeeList" list-class="java.util.ArrayList">
+        <ref bean="employee1"/>
+        <ref bean="employee2"/>
+        <ref bean="employee3"/>
+        <ref bean="employee4"/>
+        <ref bean="employee5"/>
+        <ref bean="employee6"/>
+    </util:list>
+
+</beans>
