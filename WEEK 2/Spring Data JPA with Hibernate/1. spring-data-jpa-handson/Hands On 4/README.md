@@ -1,1 +1,0 @@
-Run MySQL, create database test, update application.properties, then run DemoApplication. POST /spring/add with JSON {"name":"Hema"}.
