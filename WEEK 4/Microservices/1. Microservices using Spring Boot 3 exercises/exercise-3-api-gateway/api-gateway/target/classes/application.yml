@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      # Built-in local (in-memory) response cache - no Redis required.
+      # Requires spring-boot-starter-cache + caffeine on the classpath (see pom.xml).
+      filter:
+        local-response-cache:
+          enabled: true
+          time-to-live: 30s
+      routes:
+        # Route 1: Customer Service
+        # Incoming:  http://localhost:8080/customers/**
+        # Rewritten to: http://localhost:8091/api/customers/**
+        - id: customer-service-route
+          uri: http://localhost:8091
+          predicates:
+            - Path=/customers/**
+          filters:
+            - RewritePath=/customers/(?<segment>.*), /api/customers/${segment}
+            - name: SimpleRateLimiter   # our custom in-memory limiter (see filter package)
+              args:
+                maxRequestsPerWindow: 5
+                windowSeconds: 10
+
+        # Route 2: Billing Service
+        # Incoming:  http://localhost:8080/billing/**
+        # Rewritten to: http://localhost:8092/api/billing/**
+        - id: billing-service-route
+          uri: http://localhost:8092
+          predicates:
+            - Path=/billing/**
+          filters:
+            - RewritePath=/billing/(?<segment>.*), /api/billing/${segment}
+            - name: SimpleRateLimiter
+              args:
+                maxRequestsPerWindow: 5
+                windowSeconds: 10
