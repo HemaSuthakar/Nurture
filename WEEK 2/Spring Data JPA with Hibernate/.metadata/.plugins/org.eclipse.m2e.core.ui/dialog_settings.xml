@@ -2,8 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="C:\Users\hemas\OneDrive\Pictures\Camera Roll\Desktop\HTML\WEEK 2\Spring Data JPA with Hibernate\1. spring-data-jpa-handson"/>
-			<item value="C:\Users\hemas\OneDrive\Pictures\Camera Roll\Desktop\HTML\WEEK 2\Spring Data JPA with Hibernate"/>
+			<item value="C:\Users\hemas\OneDrive\Pictures\Camera Roll\Desktop\Nurture\WEEK 4\Microservices"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -13,9 +12,5 @@
 			<item value="[groupId].[artifactId]-[version]"/>
 			<item value="[name]"/>
 		</list>
-	</section>
-	<section name="org.eclipse.m2e.core.pom.overview">
-	</section>
-	<section name="org.eclipse.m2e.core.pom.dependencies">
 	</section>
 </section>

@@ -1,0 +1,18 @@
+server:
+  port: 8082
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://issuer.example.com
+
+# NOTE:
+# issuer-uri must point to a real OIDC issuer that exposes
+# /.well-known/openid-configuration (e.g. Keycloak realm URL, Okta, Auth0
+# tenant, or your own Spring Authorization Server instance). Spring Boot
+# uses it to auto-discover the JWK set used to validate incoming JWTs.
+#
+# Test with:
+#   curl -H "Authorization: Bearer <valid-jwt>" http://localhost:8082/secure
