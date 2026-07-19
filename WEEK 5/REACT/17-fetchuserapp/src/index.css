@@ -1,0 +1,31 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #eef2f5;
+}
+.header {
+  background-color: #37474f;
+  color: white;
+  padding: 15px 30px;
+}
+.header h1 { margin: 0; }
+.user-card {
+  max-width: 320px;
+  margin: 40px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  text-align: center;
+}
+.user-card img {
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  margin-bottom: 15px;
+}
+.user-card h2 { margin: 0 0 5px 0; }
+.user-card p { margin: 0; color: #666; text-transform: capitalize; }
+.loading-msg { text-align: center; margin-top: 40px; color: #555; }
+.error-msg { text-align: center; margin-top: 40px; color: #c62828; }
