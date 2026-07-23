@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            padding:20px;
+        }
+
+        header{
+            background:#2c3e50;
+            color:white;
+            text-align:center;
+            padding:20px;
+            border-radius:10px;
+        }
+
+        .controls{
+            margin:20px 0;
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+        }
+
+        input, select, button{
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        button{
+            cursor:pointer;
+            background:#3498db;
+            color:white;
+            border:none;
+        }
+
+        button:hover{
+            background:#2980b9;
+        }
+
+        #eventContainer{
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+            gap:20px;
+        }
+
+        .event-card{
+            background:white;
+            padding:15px;
+            border-radius:10px;
+            box-shadow:0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .event-card h3{
+            margin-bottom:10px;
+        }
+
+        .event-card p{
+            margin:5px 0;
+        }
+
+        .register-btn{
+            margin-top:10px;
+            width:100%;
+        }
+
+        .form-section{
+            background:white;
+            margin-top:30px;
+            padding:20px;
+            border-radius:10px;
+        }
+
+        .form-group{
+            margin-bottom:15px;
+        }
+
+        .form-group label{
+            display:block;
+            margin-bottom:5px;
+        }
+
+        .form-group input,
+        .form-group select{
+            width:100%;
+        }
+
+        #loader{
+            display:none;
+            margin:20px 0;
+            font-weight:bold;
+            color:blue;
+        }
+
+        #message{
+            margin-top:10px;
+            font-weight:bold;
+        }
+
+        #errorMsg{
+            margin-top:10px;
+            color:red;
+        }
+
+        footer{
+            text-align:center;
+            margin-top:30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Local Community Event Portal</h1>
+    <p>Discover and Register for Community Events</p>
+</header>
+
+<div class="controls">
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search Events"
+    >
+
+    <select id="categoryFilter">
+        <option value="All">All Categories</option>
+        <option value="Music">Music</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Sports">Sports</option>
+    </select>
+
+    <button id="registerBtn">
+        Quick Register
+    </button>
+</div>
+
+<div id="loader">
+    Loading Events...
+</div>
+
+<div id="eventContainer"></div>
+
+<section class="form-section">
+
+    <h2>Event Registration Form</h2>
+
+    <form id="registrationForm">
+
+        <div class="form-group">
+            <label>Name</label>
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter Name"
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter Email"
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Select Event</label>
+            <select name="event">
+                <option value="Music Night">Music Night</option>
+                <option value="Baking Workshop">Baking Workshop</option>
+                <option value="Football Tournament">Football Tournament</option>
+            </select>
+        </div>
+
+        <button type="submit">
+            Submit Registration
+        </button>
+
+        <div id="message"></div>
+        <div id="errorMsg"></div>
+
+    </form>
+
+</section>
+
+<footer>
+    <p>© 2026 Local Community Event Portal</p>
+</footer>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- JavaScript -->
+<script src="main.js"></script>
+
+</body>
+</html>

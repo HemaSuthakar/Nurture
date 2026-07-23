@@ -1,0 +1,242 @@
+/* Exercise 5: Typography - Importing Google Font directly via CSS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+/* Exercise 3: Universal Selector (*) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Exercise 4 & 5: Background Image, Fallback, and Fonts */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333333;
+    line-height: 1.6;
+    
+    /* Sets a real background image with a solid fallback color if it fails to load */
+    background-color: #f4f7f6;
+    background-image: url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1920&q=80');
+    
+    /* Ensures the background image scales smoothly and stays fixed while scrolling */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Exercise 1 & 3: ID Selector (#mainHeader) */
+#mainHeader {
+    background-color: rgba(31, 58, 86, 0.95);
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Exercise 3: Grouping Selector (h3, p) */
+h3, p {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Exercise 3 & 5: Element Selector (h2) */
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Exercise 4: Background Gradient */
+.section-title {
+    margin: 40px auto 20px auto;
+    padding: 12px 20px;
+    max-width: 1200px;
+    color: #ffffff;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #1f3a56 0%, #3a7bd5 100%);
+}
+
+/* Exercise 6: List Customization */
+.nav-menu {
+    list-style-type: none;
+    list-style-position: inside;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.nav-menu li {
+    padding: 5px 10px;
+}
+
+/* Exercise 6: Link Pseudo-classes */
+.nav-menu a:link {
+    color: #a5d6a7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-menu a:visited {
+    color: #81c784;
+}
+
+.nav-menu a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.nav-menu a:active {
+    color: #ffeb3b;
+}
+
+/* Exercise 10: Flexbox Container Setup */
+.events-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Exercise 3 & 8: Class Selector & Box Model */
+.eventCard {
+    flex: 1 1 calc(50% - 20px);
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    padding: 25px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Exercise 5: Text Formatting Properties */
+.event-desc {
+    font-size: 0.95rem;
+    font-style: normal;
+    text-align: justify;
+    letter-spacing: 0.3px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Exercise 2 & 5: CSS Syntax and Uppercase Transform */
+/* Style for main CTA button */
+.cta-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Exercise 8: Visibility Display Value Comparison */
+.visual-hide {
+    display: none;
+}
+
+/* Exercise 8: Interactive Highlight Form Outlines */
+.portal-form {
+    max-width: 500px;
+    margin: 0 auto 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.portal-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.portal-form input:focus {
+    outline: 3px solid #3a7bd5;
+    outline-offset: 2px;
+}
+
+/* Exercise 7: Table Alignment and Striping Rules */
+.events-table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+}
+
+.events-table th,
+.events-table td {
+    border: 1px solid #dddddd;
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.events-table th {
+    background-color: #1f3a56;
+    color: white;
+    font-weight: 600;
+}
+
+.events-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+/* Exercise 8: Completely vanishes and collapses the layout */
+.collapsed-card {
+    display: none;
+}
+
+/* Exercise 8: Invisible, but keeps its exact width and height on screen */
+.invisible-card {
+    visibility: hidden;
+}
+/* Exercise 9: Multi-Column Text Rules */
+.newspaper-columns {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px solid #cccccc;
+}
+
+
+/* Exercise 10: Responsive Web Design Media Queries */
+
+
+@media screen and (max-width: 768px) {
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .events-grid {
+        flex-direction: column;
+    }
+    .eventCard {
+        flex: 1 1 100%;
+    }
+    .newspaper-columns {
+        column-count: 1;
+    }
+    h1 {
+        font-size: 7vw;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    body {
+        font-size: 90%;
+    }
+}

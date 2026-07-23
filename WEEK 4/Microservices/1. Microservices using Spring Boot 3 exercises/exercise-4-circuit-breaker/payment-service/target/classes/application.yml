@@ -1,0 +1,37 @@
+server:
+  port: 8095
+
+spring:
+  application:
+    name: payment-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,circuitbreakers,circuitbreakerevents,metrics
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      thirdPartyPayment:
+        register-health-indicator: true
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 10          # look at the last 10 calls
+        minimum-number-of-calls: 5       # need at least 5 calls before calculating failure rate
+        failure-rate-threshold: 50       # open the circuit if >= 50% of calls fail
+        slow-call-rate-threshold: 50     # also treat too many "slow" calls as failures
+        slow-call-duration-threshold: 2s # a call is considered "slow" if it takes > 2s
+        wait-duration-in-open-state: 10s # stay OPEN for 10s before trying again (HALF_OPEN)
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+  timelimiter:
+    instances:
+      thirdPartyPayment:
+        timeout-duration: 3s             # give up waiting on the slow API after 3s
